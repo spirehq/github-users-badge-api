@@ -16,4 +16,4 @@ WebApp.connectHandlers
     repositoryUrl = "https://github.com/#{splinters[1]}/#{splinters[2]}"
     repository = Repositories.findOne({url: repositoryUrl})
     count = repository?.users or encodeURIComponent("?")
-    request.get("https://img.shields.io/badge/users-#{count}-brightgreen.svg").pipe(res)
+    request.get("https://img.shields.io/badge/dependents-#{count}-brightgreen.svg").pipe(res)
