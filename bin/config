@@ -1,0 +1,4 @@
+#!/bin/bash
+
+DOMAIN=""
+MONGO_FLAGS=""

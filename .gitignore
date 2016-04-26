@@ -1,0 +1,4 @@
+node_modules/
+settings/*.local.json
+settings.json
+mup.json

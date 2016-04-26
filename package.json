@@ -1,0 +1,10 @@
+{
+  "name": "github-users-badge-api",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "request": "^2.72.0"
+  }
+}

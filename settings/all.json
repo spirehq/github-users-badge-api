@@ -1,0 +1,10 @@
+{
+  "segment": {
+    "isEnabled": false
+  },
+  "public": {
+    "version": "__VERSION__",
+    "isDebug": false,
+    "isDevLoginActive": false
+  }
+}
