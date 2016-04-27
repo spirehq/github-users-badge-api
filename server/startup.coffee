@@ -9,7 +9,6 @@ fs = require "fs"
 Fixtures.push Repositories, RepositoriesFixtures
 
 Meteor.startup ->
-  console.log arguments
   if not Migrations._collection.findOne("control")
     Fixtures.insertAll([])
   else
