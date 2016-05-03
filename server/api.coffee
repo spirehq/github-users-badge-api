@@ -7,10 +7,9 @@ request = require "request"
 #Fiber = Npm.require("fibers")
 
 WebApp.connectHandlers.use (req, res, next) ->
-  return next() unless req.url.match(/^\/badge/)
   return next() unless req.url.match(/\.svg$/)
   parts = url.parse(req.url)
-  pathname = parts.pathname.replace("/badge", "").replace(".svg", "")
+  pathname = parts.pathname.replace(".svg", "")
   splinters = pathname.split("/")
   return next() unless splinters.length is 3 and splinters[1] and splinters[2]
   repositoryUrl = "https://github.com/#{splinters[1]}/#{splinters[2]}"
