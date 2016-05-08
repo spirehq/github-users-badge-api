@@ -4,6 +4,9 @@ request = require "request"
 
 calculations =
   "https://github.com/kissjs/node-mongoskin": 3292
+  "https://github.com/pgherveou/gulp-awspublish": 1106
+  "https://github.com/dciccale/grunt-processhtml": 3456
+  "https://github.com/robrich/gulp-rimraf": 6950
 
 #connect = Npm.require("connect")
 #
