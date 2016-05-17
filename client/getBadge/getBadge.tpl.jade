@@ -11,5 +11,8 @@ form.js-repository-form.form-group
 			h3.panel-title Badge has been successfully generated
 		.panel-body
 			img(src=path)
-			label Insert the code below in your Readme.md to get this badge!
+			label
+				| Insert the code below in your
+				a(href=readmeUrl) Readme.md
+				| to get this badge!
 			input.insert-code(readonly value=insertCode)

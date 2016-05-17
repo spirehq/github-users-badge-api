@@ -11,9 +11,12 @@ Template.getBadge.helpers
 		"[![Mentions](#{path})](#{details})"
 	showResult: ->
 		!! Template.instance().path.get()
+	readmeUrl: ->
+		"#{Template.instance().url.get()}/blob/master/README.md"
 
 Template.getBadge.onCreated ->
 	@path = new ReactiveVar()
+	@url = new ReactiveVar()
 
 	@getPath = -> Meteor.absoluteUrl(@path.get()) + ".svg"
 	@getDetails = -> Meteor.absoluteUrl(@path.get()) + "/details"
@@ -48,7 +51,10 @@ Template.getBadge.events
 			isValid = validateRepositoryUrl raw
 
 			if isValid
-				instance.path.set resolvePath resolveRepositoryUrl raw
+				url = resolveRepositoryUrl raw
+				path = resolvePath url
+				instance.url.set url
+				instance.path.set path
 			else
 				instance.path.set undefined
 				instance.error "Repository URL is incorrect"
