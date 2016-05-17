@@ -1,4 +1,5 @@
 accounts-base@1.2.7
+aldeed:simple-schema@1.5.3
 allow-deny@1.0.4
 autoupdate@1.2.9
 babel-compiler@6.6.4
@@ -34,12 +35,16 @@ htmljs@1.0.9
 http@1.1.5
 id-map@1.0.7
 jquery@1.11.8
+kadira:blaze-layout@2.3.0
+kadira:flow-router@2.12.1
 kadira:flow-router-ssr@3.13.0
 launch-screen@1.0.11
 livedata@1.0.18
 localstorage@1.0.9
 logging@1.0.12
 matb33:collection-hooks@0.8.1
+mdg:validated-method@1.1.0
+mdg:validation-error@0.2.0
 meteor@1.1.14
 meteor-base@1.0.4
 meteorhacks:fast-render@2.14.0
