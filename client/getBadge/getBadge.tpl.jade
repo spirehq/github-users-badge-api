@@ -1,5 +1,9 @@
-.outer-div
-	p Enter your repository URL
-	form.repository-form
-		input.repository-url(type="text" placeholder="https://github.com/spirehq/github-users-badge-api")
-		input(type="submit" value="Get badge")
+label.control-label(for="repository_url") Enter your repository URL
+form.js-repository-form.form-group
+	.input-group
+		input.form-control.js-repository-url(id="repository_url" type="text" placeholder="https://github.com/spirehq/github-users-badge-api")
+		span.input-group-btn
+			button.btn.btn-primary(type="submit") Get badge
+	label.js-error-message.control-label(for="repository_url")
+.result
+
