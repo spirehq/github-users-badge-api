@@ -1,10 +1,23 @@
 { Template } = require 'meteor/templating'
+{ FlowRouter } = require 'meteor/kadira:flow-router'
+{ ReactiveVar } = require 'meteor/reactive-var'
 
 Template.getBadge.helpers
-	test: ->
-		true
+	path: ->
+		Template.instance().getPath()
+	insertCode: ->
+		path = Template.instance().getPath()
+		details = Template.instance().getDetails()
+		"[![Mentions](#{path})](#{details})"
+	showResult: ->
+		!! Template.instance().path.get()
 
 Template.getBadge.onCreated ->
+	@path = new ReactiveVar()
+
+	@getPath = -> Meteor.absoluteUrl(@path.get()) + ".svg"
+	@getDetails = -> Meteor.absoluteUrl(@path.get()) + "/details"
+
 	@clearState = ->
 		form = @$(".js-repository-form")
 		message = @$(".js-error-message")
@@ -35,12 +48,10 @@ Template.getBadge.events
 			isValid = validateRepositoryUrl raw
 
 			if isValid
-				url = resolveRepositoryUrl raw
-				console.log url
-
-				Meteor.call 'getBadge', {url}, ->
-					console.log "Response received"
+				instance.path.set resolvePath resolveRepositoryUrl raw
 			else
+				instance.path.set undefined
 				instance.error "Repository URL is incorrect"
 		else
+			instance.path.set undefined 
 			instance.warning "Repository isn't set"
