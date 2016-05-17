@@ -9,14 +9,20 @@ Template.getBadge.helpers
 		path = Template.instance().getPath()
 		details = Template.instance().getDetails()
 		"[![Mentions](#{path})](#{details})"
-	showResult: ->
-		!! Template.instance().path.get()
 	readmeUrl: ->
 		"#{Template.instance().url.get()}/blob/master/README.md"
 
 Template.getBadge.onCreated ->
 	@path = new ReactiveVar()
 	@url = new ReactiveVar()
+
+	@autorun =>
+		result = $(".result")
+
+		if @path.get()
+			result.fadeIn()
+		else
+			result.fadeOut()
 
 	@getPath = -> Meteor.absoluteUrl(@path.get()) + ".svg"
 	@getDetails = -> Meteor.absoluteUrl(@path.get()) + "/details"
