@@ -4,9 +4,15 @@ fs = require "fs"
 { Fixtures } = require "/imports/server/fixtures"
 { migrate } = require "/imports/server/migrate"
 { Repositories } = require "/imports/api/repositories/collection"
+{ Packages } = require "/imports/api/packages/collection"
+{ Files } = require "/imports/api/files/collection"
 { RepositoriesFixtures } = require "/imports/server/repositories/fixtures"
+{ PackagesFixtures } = require "/imports/server/packages/fixtures"
+{ FilesFixtures } = require "/imports/server/files/fixtures"
 
 Fixtures.push Repositories, RepositoriesFixtures
+Fixtures.push Packages, PackagesFixtures
+Fixtures.push Files, FilesFixtures
 
 Meteor.startup ->
   if not Migrations._collection.findOne("control")
