@@ -5,12 +5,20 @@ if Template.subscriptionsReady
 				| There are {{usages}} mentions of
 				a.repository-link(href=repositoryUrl) {{path}}
 		.panel-body
-				ol
-				each file in files
-					li
-						a(href=file.url) {{file.name}}
-				else
-
+			if hasFiles
+				table.table.table-striped.table-hover
+					thead
+						tr
+							th Package
+							th Stars
+							th Contributors
+					tbody
+						each file in files
+							tr
+								td
+									a(href=file.url) {{file.name}}
+								td 12
+								td 42
 			if filesLoading
 				+loader
 			else

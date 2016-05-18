@@ -22,6 +22,8 @@ Template.details.helpers
 		not Template.instance().filesHandler.ready()
 	noFiles: ->
 		Files.find().count() is 0
+	hasFiles: ->
+		Files.find().count() isnt 0
 	hasMoreFiles: ->
 		Template.instance().hasMoreFiles.get()
 
