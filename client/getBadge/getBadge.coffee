@@ -11,6 +11,8 @@ Template.getBadge.helpers
 		"[![Mentions](#{path})](#{details})"
 	readmeUrl: ->
 		"#{Template.instance().url.get()}/blob/master/README.md"
+	detailsUrl: ->
+		Template.instance().getDetails()
 
 Template.getBadge.onCreated ->
 	@path = new ReactiveVar()
@@ -25,7 +27,12 @@ Template.getBadge.onCreated ->
 			result.fadeOut()
 
 	@getPath = -> Meteor.absoluteUrl(@path.get()) + ".svg"
-	@getDetails = -> Meteor.absoluteUrl(@path.get()) + "/details"
+
+	@getDetails = ->
+		path = @path.get()
+		if path
+			[author, repository] = path.split('/')
+			FlowRouter.path 'details', {author, repository}
 
 	@clearState = ->
 		form = @$(".js-repository-form")

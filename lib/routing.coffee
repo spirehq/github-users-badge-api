@@ -9,8 +9,8 @@ router.route "/",
 		BlazeLayout.render "layout",
 			main: "getBadge"
 
-router.route "/:path/details",
+router.route "/:author/:repository",
 	name: "details"
 	action: ->
 		BlazeLayout.render "layout",
-			main: "getBadge"
+			main: "details"
