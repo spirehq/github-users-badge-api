@@ -25,5 +25,4 @@ matb33:collection-hooks
 coffeescript
 mdg:validated-method
 aldeed:simple-schema
-kadira:flow-router
 kadira:blaze-layout
