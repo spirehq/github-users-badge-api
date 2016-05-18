@@ -6,10 +6,16 @@
 Meteor.publish 'repository', (url) ->
 	Repositories.find {url}
 
-Meteor.publishComposite 'files', (url) ->
-	find: -> Packages.find {url}
-	children: [
-		{
-			find: (pack) -> Files.find {packages: pack.name}
-		}
-	]
+# TODO Problem: unable to limit number of returned items because of multiple cursors
+#Meteor.publishComposite 'files', (url) ->
+#	find: -> Packages.find {url}
+#	children: [
+#		{
+#			find: (pack) -> Files.find {packages: pack.name}
+#		}
+#	]
+
+Meteor.publish 'files', (url, limit) ->
+	pack = Packages.findOne {url}
+	return @ready() if not pack
+	[Packages.find({url}), Files.find({packages: pack.name}, {limit})]

@@ -5,9 +5,16 @@ if Template.subscriptionsReady
 				| There are {{usages}} mentions of
 				a.repository-link(href=repositoryUrl) {{path}}
 		.panel-body
-			ol
-			each file in files
-				li
-					a(href=file.url) {{file.name}}
+				ol
+				each file in files
+					li
+						a(href=file.url) {{file.name}}
+				else
+
+			if filesLoading
+				+loader
 			else
-				span No mentions were found
+				if noFiles
+					span No mentions were found
+				else if hasMoreFiles
+					div(id="showMoreResults")
