@@ -1,0 +1,13 @@
+if Template.subscriptionsReady
+	.panel.panel-success
+		.panel-heading
+			h3.panel-title
+				| There are {{usages}} mentions of
+				a.repository-link(href=repositoryUrl) {{path}}
+		.panel-body
+			ol
+			each file in files
+				li
+					a(href=file.url) {{file.name}}
+			else
+				span No mentions were found

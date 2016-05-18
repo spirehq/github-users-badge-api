@@ -13,3 +13,6 @@
 	matches = url.match /https:\/\/github\.com\/([^/]+\/[^/]+)/
 	return false if not matches
 	matches[1]
+
+@buildRepositoryUrl = (path) ->
+	"https://github.com/" + path

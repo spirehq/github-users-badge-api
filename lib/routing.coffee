@@ -11,6 +11,7 @@ router.route "/",
 
 router.route "/:author/:repository",
 	name: "details"
-	action: ->
+	action: ({author, repository}) ->
 		BlazeLayout.render "layout",
 			main: "details"
+			path: "#{author}/#{repository}"
