@@ -32,7 +32,7 @@ Template.getBadge.onCreated ->
 		path = @path.get()
 		if path
 			[author, repository] = path.split('/')
-			FlowRouter.path 'details', {author, repository}
+			FlowRouter.url 'details', {author, repository}
 
 	@clearState = ->
 		form = @$(".js-repository-form")
