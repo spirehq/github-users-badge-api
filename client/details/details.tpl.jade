@@ -2,7 +2,7 @@ if Template.subscriptionsReady
 	.panel.panel-success
 		.panel-heading
 			h3.panel-title
-				| There are {{usages}} mentions of
+				| {{usages}} mentions of
 				a.repository-link(href=repositoryUrl) {{path}}
 		.panel-body
 			if hasFiles
@@ -22,7 +22,5 @@ if Template.subscriptionsReady
 			if filesLoading
 				+loader
 			else
-				if noFiles
-					span No mentions were found
-				else if hasMoreFiles
+				if hasMoreFiles
 					div(id="showMoreResults")

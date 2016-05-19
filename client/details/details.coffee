@@ -8,7 +8,7 @@
 Template.details.helpers
 	usages: ->
 		url = Template.instance().url.get()
-		Repositories.findOne({url})?.users or 0
+		Repositories.findOne({url})?.users or 'no'
 	repositoryUrl: ->
 		Template.instance().url.get()
 	files: ->
