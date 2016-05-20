@@ -7,6 +7,7 @@ calculations =
   "https://github.com/pgherveou/gulp-awspublish": 1106
   "https://github.com/dciccale/grunt-processhtml": 3456
   "https://github.com/robrich/gulp-rimraf": 6950
+  "https://github.com/josdejong/mathjs": 899
 
 #connect = Npm.require("connect")
 #
