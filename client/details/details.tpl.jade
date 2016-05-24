@@ -16,7 +16,7 @@ if Template.subscriptionsReady
 						each file in files
 							tr
 								td
-									a(href=file.url) {{file.name}}
+									a(href=file.url) {{getFilePath file}}
 								td 12
 								td 42
 			if filesLoading
