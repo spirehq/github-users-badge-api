@@ -2,12 +2,12 @@ url = require "url"
 request = require "request"
 {Repositories} = require "/imports/api/repositories/collection"
 
-calculations =
-  "https://github.com/kissjs/node-mongoskin": 3292
-  "https://github.com/pgherveou/gulp-awspublish": 1106
-  "https://github.com/dciccale/grunt-processhtml": 3456
-  "https://github.com/robrich/gulp-rimraf": 6950
-  "https://github.com/josdejong/mathjs": 899
+calculations = {}
+#  "https://github.com/kissjs/node-mongoskin": 3292
+#  "https://github.com/pgherveou/gulp-awspublish": 1106
+#  "https://github.com/dciccale/grunt-processhtml": 3456
+#  "https://github.com/robrich/gulp-rimraf": 6950
+#  "https://github.com/josdejong/mathjs": 899
 
 #connect = Npm.require("connect")
 #
