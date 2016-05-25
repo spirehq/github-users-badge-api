@@ -18,6 +18,9 @@ Template.details.helpers
 			for pack in packages
 				Files.find({packages: pack.name}).fetch()
 		)
+	getFilePath: (file) ->
+		matches = file.url.match /https:\/\/github\.com\/([^\/]+\/[^\/]+)/
+		matches?[1]
 	filesLoading: ->
 		not Template.instance().filesHandler.ready()
 	noFiles: ->
