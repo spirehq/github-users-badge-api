@@ -20,7 +20,7 @@ Template.details.helpers
 		)
 	getFilePath: (file) ->
 		matches = file.url.match /https:\/\/github\.com\/([^\/]+\/[^\/]+)/
-		matches?[1]
+		matches[1]
 	filesLoading: ->
 		not Template.instance().filesHandler.ready()
 	noFiles: ->
