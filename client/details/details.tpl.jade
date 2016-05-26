@@ -10,15 +10,15 @@ if Template.subscriptionsReady
 					thead
 						tr
 							th Package
-							th Stars
-							th Contributors
+							//th Stars
+							//th Contributors
 					tbody
 						each file in files
 							tr
 								td
 									a(href=file.url) {{getFilePath file}}
-								td 12
-								td 42
+								//td 12
+								//td 42
 			if filesLoading
 				+loader
 			else
