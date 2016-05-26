@@ -16,6 +16,7 @@ Meteor.publish 'repository', (url) ->
 #	]
 
 Meteor.publish 'files', (url, limit) ->
-	pack = Packages.findOne {url}
-	return @ready() if not pack
-	[Packages.find({url}), Files.find({packages: pack.name}, {limit})]
+	packages = Packages.find({url}, {fields: {name: 1}}).fetch()
+	names = _.pluck packages, "name"
+	return @ready() if not names.length
+	[Packages.find({url}), Files.find({packages: {$in: names}}, {limit})]
