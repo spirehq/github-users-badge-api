@@ -2,6 +2,7 @@ url = require "url"
 request = require "request"
 ua = require "universal-analytics"
 {Repositories} = require "/imports/api/repositories/collection"
+{Events} = require "/imports/api/events/collection"
 
 calculations = {}
 #  "https://github.com/kissjs/node-mongoskin": 3292
@@ -33,6 +34,7 @@ WebApp.connectHandlers.use (req, res, next) ->
 
   request.get("https://img.shields.io/badge/mentions-#{count}-brightgreen.svg").pipe(res)
 
-trackEvent = (label, value) ->
+trackEvent = (path, count) ->
+  Events.insert {label: "requested", path, count}
   client = ua(Meteor.settings.public.analyticsSettings["Google Analytics"].trackingId, {https: true}).debug()
-  client.event("All", "Badge request", label, value).send()
+  client.event("All", "Badge request", path, count).send()
