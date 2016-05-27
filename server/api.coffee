@@ -36,5 +36,5 @@ WebApp.connectHandlers.use (req, res, next) ->
 
 trackEvent = (path, count) ->
   Events.insert {label: "requested", path, count}
-  client = ua(Meteor.settings.public.analyticsSettings["Google Analytics"].trackingId, {https: true}).debug()
+  client = ua(Meteor.settings.public.analyticsSettings["Google Analytics"].trackingId, {https: true})
   client.event("All", "Badge request", path, count).send()
