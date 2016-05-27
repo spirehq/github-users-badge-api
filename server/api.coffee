@@ -1,5 +1,6 @@
 url = require "url"
 request = require "request"
+ua = require "universal-analytics"
 {Repositories} = require "/imports/api/repositories/collection"
 
 calculations = {}
@@ -25,4 +26,13 @@ WebApp.connectHandlers.use (req, res, next) ->
   else
     repository = Repositories.findOne({url: repositoryUrl})
     count = repository?.users or encodeURIComponent("?")
+
+    label = "#{splinters[1]}/#{splinters[2]}"
+    value = repository?.users or 0
+    trackEvent label, value
+
   request.get("https://img.shields.io/badge/mentions-#{count}-brightgreen.svg").pipe(res)
+
+trackEvent = (label, value) ->
+  client = ua(Meteor.settings.public.analyticsSettings["Google Analytics"].trackingId, {https: true}).debug()
+  client.event("All", "Badge request", label, value).send()

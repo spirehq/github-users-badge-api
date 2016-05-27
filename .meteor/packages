@@ -31,3 +31,4 @@ ddp-rate-limiter
 reywood:publish-composite
 percolate:paginated-subscription
 force-ssl
+okgrow:analytics

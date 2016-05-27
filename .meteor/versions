@@ -58,6 +58,7 @@ mquandalle:jade@0.4.9
 mquandalle:jade-compiler@0.4.5
 npm-mongo@1.4.43
 observe-sequence@1.0.11
+okgrow:analytics@1.0.6
 ordered-dict@1.0.7
 percolate:migrations@0.9.8
 percolate:paginated-subscription@0.2.4
