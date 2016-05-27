@@ -17,7 +17,6 @@ WebApp.connectHandlers.use (req, res, next) ->
   count = repository?.users or encodeURIComponent("?")
 
   if fromGithub(req)
-    console.log "From Github"
     label = "#{splinters[1]}/#{splinters[2]}"
     value = repository?.users or 0
     trackEvent label, value
