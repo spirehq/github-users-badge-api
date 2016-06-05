@@ -4,10 +4,10 @@
 router = FlowRouter.group()
 
 router.route "/",
-	name: "getBadge"
+	name: "index"
 	action: ->
 		BlazeLayout.render "layout",
-			main: "getBadge"
+			main: "index"
 
 router.route "/:author/:repository",
 	name: "details"

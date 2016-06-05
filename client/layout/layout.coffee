@@ -2,5 +2,5 @@
 { Template } = require 'meteor/templating'
 
 Template.layout.helpers
-	index: ->
-		Meteor.absoluteUrl()
+  index: ->
+    Meteor.absoluteUrl()

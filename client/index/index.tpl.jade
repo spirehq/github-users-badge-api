@@ -1,0 +1,27 @@
+.index.container
+  .row
+    .col-xs-12
+      label.control-label(for="repository_url") Your package repository URL:
+      form.js-repository-form.form-group
+        .input-group
+          input.form-control.js-repository-url(id="repository_url" type="text" placeholder="https://github.com/spirehq/github-users-badge-api")
+          span.input-group-btn
+            button.btn.btn-primary(type="submit") Get badge
+        label.js-error-message.control-label(for="repository_url")
+  //.row
+  //  .col-xs-12
+  //    | "Mentions" is a badge for your GitHub repository. It shows the number of projects using
+  .row
+    .col-xs-12
+      .result
+        .panel.panel-success
+          .panel-heading
+            h3.panel-title Badge has been successfully generated
+          .panel-body
+            a(href=detailsUrl)
+              img(src=path)
+            label.readme
+              | Insert the code below in your
+              a(href=readmeUrl) Readme.md
+              | to get this badge!
+            input.insert-code(readonly="readonly" value=insertCode)

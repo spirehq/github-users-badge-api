@@ -1,26 +1,26 @@
 if Template.subscriptionsReady
-	.panel.panel-success
-		.panel-heading
-			h3.panel-title
-				| {{usages}} mentions of
-				a.repository-link(href=repositoryUrl) {{path}}
-		.panel-body
-			if hasFiles
-				table.table.table-striped.table-hover
-					thead
-						tr
-							th Package
-							//th Stars
-							//th Contributors
-					tbody
-						each file in files
-							tr
-								td
-									a(href=file.url) {{getFilePath file}}
-								//td 12
-								//td 42
-			if filesLoading
-				+loader
-			else
-				if hasMoreFiles
-					div(id="showMoreResults")
+  .panel.panel-success
+    .panel-heading
+      h3.panel-title
+        | {{usages}} mentions of
+        a.repository-link(href=repositoryUrl) {{path}}
+    .panel-body
+      if hasFiles
+        table.table.table-striped.table-hover
+          thead
+            tr
+              th Package
+              //th Stars
+              //th Contributors
+          tbody
+            each file in files
+              tr
+                td
+                  a(href=file.url) {{getFilePath file}}
+                //td 12
+                //td 42
+      if filesLoading
+        +loader
+      else
+        if hasMoreFiles
+          div(id="showMoreResults")
