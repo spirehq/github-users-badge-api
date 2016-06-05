@@ -1,27 +1,62 @@
 .index.container
   .row
     .col-xs-12
-      label.control-label(for="repository_url") Your package repository URL:
-      form.js-repository-form.form-group
+      h1 Show your package user base
+  .row
+    .col-xs-12
+      label.control-label(for="repository_url") Get the badge:
+      form.js-repository-form
         .input-group
-          input.form-control.js-repository-url(id="repository_url" type="text" placeholder="https://github.com/spirehq/github-users-badge-api")
+          input.form-control.js-repository-url(id="repository_url" type="text" placeholder="Repository URL (e.g. \"https://github.com/spirehq/github-users-badge-api\")")
           span.input-group-btn
             button.btn.btn-primary(type="submit") Get badge
-        label.js-error-message.control-label(for="repository_url")
-  //.row
-  //  .col-xs-12
-  //    | "Mentions" is a badge for your GitHub repository. It shows the number of projects using
+        label.js-error-message.control-label(for="repository_url" style="display: none;")
   .row
     .col-xs-12
       .result
-        .panel.panel-success
+        .badge-wrapper.text-center
+          a(href=detailsUrl)
+            img(src=path)
+        .panel.panel-default
           .panel-heading
-            h3.panel-title Badge has been successfully generated
+            h3.panel-title Great job! Now add it to your <a href="{{readmeUrl}}">README.md</a>:
           .panel-body
-            a(href=detailsUrl)
-              img(src=path)
-            label.readme
-              | Insert the code below in your
-              a(href=readmeUrl) Readme.md
-              | to get this badge!
-            input.insert-code(readonly="readonly" value=insertCode)
+            p Show your package user base:
+            textarea.form-control.insert-code(readonly="readonly") {{insertCode}}
+  .row
+    .col-xs-12
+      hr
+  .row
+    .col-xs-12
+      h2 FAQ
+      #accordion.panel-group(role='tablist', aria-multiselectable='true')
+        .panel.panel-default
+          #headingOne.panel-heading(role='tab')
+            h4.panel-title
+              a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne')
+                | How is it different from NPM's "dependents" metric?
+          #collapseOne.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingOne')
+            .panel-body
+              p Here's a good example based on "grunt-processhtml" package:
+              ul
+                li
+                  a(href="https://www.npmjs.com/browse/depended/grunt-processhtml" target="_blank") <strong>7</strong> dependents
+                li
+                  a(href="https://github.com/search?utf8=✓&q=grunt-processhtml+filename%3Apackage.json&type=Code&ref=searchresults" target="_blank") <strong>3,450</strong> mentions
+              p That's ~500x difference :)
+        //.panel.panel-default
+        //  #headingTwo.panel-heading(role='tab')
+        //    h4.panel-title
+        //      a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo')
+        //        | Collapsible Group Item #2
+        //  #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
+        //    .panel-body
+        //      | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        //.panel.panel-default
+        //  #headingThree.panel-heading(role='tab')
+        //    h4.panel-title
+        //      a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseThree', aria-expanded='false', aria-controls='collapseThree')
+        //        | Collapsible Group Item #3
+        //  #collapseThree.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingThree')
+        //    .panel-body
+        //      | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.

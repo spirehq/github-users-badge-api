@@ -2,7 +2,7 @@
 { FlowRouter } = require 'meteor/kadira:flow-router'
 { ReactiveVar } = require 'meteor/reactive-var'
 
-Template.getBadge.helpers
+Template.index.helpers
   path: ->
     Template.instance().getPath()
   insertCode: ->
@@ -14,7 +14,7 @@ Template.getBadge.helpers
   detailsUrl: ->
     Template.instance().getDetails()
 
-Template.getBadge.onCreated ->
+Template.index.onCreated ->
   @path = new ReactiveVar()
   @url = new ReactiveVar()
 
@@ -39,20 +39,23 @@ Template.getBadge.onCreated ->
     message = @$(".js-error-message")
     form.removeClass "has-error has-warning"
     message.html ""
+    message.hide()
 
   @warning = (text) ->
     form = @$(".js-repository-form")
     message = @$(".js-error-message")
     form.addClass "has-warning"
     message.html text
+    message.show()
 
   @error = (text) ->
     form = @$(".js-repository-form")
     message = @$(".js-error-message")
     form.addClass "has-error"
     message.html text
+    message.show()
 
-Template.getBadge.events
+Template.index.events
   "submit .js-repository-form": (event, instance) ->
     event.preventDefault()
     instance.clearState()
